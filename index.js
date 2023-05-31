@@ -22,7 +22,7 @@ function installSFDX(){
   var createDir = 'mkdir sfdx'
   var unzip = 'tar xJf /tmp/' + tarballFile + ' -C sfdx --strip-components 1'
   var install = 'echo "`pwd`/sfdx/bin" >> $GITHUB_PATH'
-  var version = 'sfdx/bin/sfdx --version && sfdx/bin/sfdx plugins --core'
+  var version = 'sfdx/bin/sf --version && sfdx/bin/sf plugins --core'
   exec(download+' && '+createDir+' && '+unzip+' && '+install+' && '+version, function(error, stdout, stderr){
     if(error) throw(stderr)
     core.info(stdout)
